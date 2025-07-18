@@ -191,6 +191,32 @@ echo "✅ SQL Agent is enabled."
 ##### If any issue occure during installation OR Want any Other SQL version 
 Please visit the MSSQL Official Site:  [SQL Server on Linux - Microsoft Docs](https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup)
 
+#### SQL CMD
+##### Installation
+```
+# SQL Tools Install
+sudo apt update
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+sudo apt update
+sudo apt install mssql-tools unixodbc-dev -y
+
+# Then added them to path
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+##### Connect SQL via command line
+```
+sqlcmd -S host,port -U sa -P password
+```
+`host` localhost OR IP, `port` SQL Port, `sa` as user & `password` SQL Password
+
+##### Direct Query Hit
+```
+sqlcmd -S host,port -U sa -P password -Q "Query"
+```
+`host` localhost OR IP, `port` SQL Port, `sa` as user, `password` SQL Password & `Query` Query to run
+
 ## PM2 Service Installation
 #### Script For Installation of PM2 Service & Node for `Ubuntu 22.04`
 ```
