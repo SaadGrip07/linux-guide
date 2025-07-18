@@ -97,3 +97,18 @@
 #### 20. Finally you can login with `info` 
 ![Installation Step 17](images/installation_img18.png)
 
+## Basic Settings
+### Update the packages
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install net-tools
+```
+
+### Firewall Setting
+##### Enable firewall & Then allow SSH to connect it remotely
+```
+sudo ufw enable
+sudo ufw allow "OpenSSH"
+```
+##### 
